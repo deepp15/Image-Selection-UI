@@ -1,0 +1,51 @@
+ 
+<div class="main-container">
+
+  <div class="buttonCotainer">
+    <input type="file" id="fileInput" accept="image/*" (change)="handleFileSelect($event)"> 
+    <button type="button" value="Upload Image" (click)="openFilePicker($event)">Choose Image</button>
+    <button type="button" value="Upload Image" (click)="openImage()">
+      {{ imageURL ? 'Close Image' : 'Open Image'}}
+    </button>
+
+    
+    <!-- <button type="button" value="fetch Image" (click)="postData(textData)">Fetch Data</button> -->
+  </div>
+
+  <div class="container">
+
+    <div class="container2">
+      <div class="imageContainer"  *ngIf="showFirstComponent">
+        <!-- <h1>Hello m</h1> -->
+        <img *ngIf="imageURL" [src]="imageURL" alt="Selected Image" class="resizable-image">
+        
+      </div>    
+    </div>
+
+   
+    <div class="container2" *ngIf="showSecondComponent">
+      <div class="imageContainer">
+        <!-- <h1>Hello m</h1> -->
+        <img *ngIf="receivedImageURL" [src]="receivedImageURL" alt="Received Image" class="resizable-image" >
+        <div *ngIf="result" class="result-container">
+          <p><b>Tyre Unique Id:</b> {{ result.Tyre_Unqiue_Id }}</p>
+          <p><b>Type:</b> {{ result.Type }}</p>
+          <p><b>Defect Result:</b> {{ result.Defect_Result }}</p>
+          <p><b>Time Taken For Processing:</b> {{ result.Time_Taken_For_Proccessing }}</p>
+          <p><b>Image Path:</b> {{ result.Image_Path }}</p>
+          <p><b>Error Code:</b> {{ result.Error_Code }}</p>
+          <p><b>Error Message:</b> {{ result.Error_Message }}</p>
+        </div>
+      </div>
+
+      <!-- <div class="buttonCotainer"> -->
+        <!-- <input type="file" id="fileInput" accept="image/*" (change)="handleFileSelect($event)">  -->
+        <!-- <button type="menu" (click)="openFilePicker($event)">Updated Image</button> -->
+      <!-- </div> -->
+    </div>
+
+  </div>
+
+  
+
+</div>
